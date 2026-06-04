@@ -4,6 +4,7 @@ import Profile from "./components/Profile";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
+import ContactForm from "./components/ContactForm";
 
 import "./style.css";
 
@@ -23,6 +24,8 @@ function App() {
       <About />
 
       <Projects />
+
+      <ContactForm />
 
       <Footer />
     </div>

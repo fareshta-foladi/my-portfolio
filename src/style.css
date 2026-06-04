@@ -3,3 +3,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.light {
+  background-color: white;
+  color: black;
+  padding: 20px;
+}
+
+.dark {
+  background-color: #222;
+  color: white;
+  padding: 20px;
+}
