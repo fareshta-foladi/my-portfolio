@@ -1,7 +1,10 @@
-import About from "../components/About";
-
-function AboutPage() {
-  return <AboutSection />;
+function About() {
+  return (
+    <div>
+      <h1>About Me</h1>
+      <p>This is my portfolio website built with React.</p>
+    </div>
+  );
 }
 
-export default AboutPage;
+export default About;

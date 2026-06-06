@@ -11,7 +11,7 @@ import NotFound from "./pages/NotFound";
 
 import { ThemeProvider, ThemeContext } from "./context/ThemeContext";
 import { useContext } from "react";
-import { FavoritesProvider } from "./context/FavoritesContext";
+import { FavoritesProvider } from "./context/Favoritesgit Context";
 
 function AppContent() {
   const { darkMode } = useContext(ThemeContext);
