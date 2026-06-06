@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useContext } from "react";
 
 import Navbar from "./components/Navbar";
-
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
@@ -10,8 +10,6 @@ import ProjectDetails from "./pages/ProjectDetails";
 import NotFound from "./pages/NotFound";
 
 import { ThemeProvider, ThemeContext } from "./context/ThemeContext";
-import { useContext } from "react";
-import { FavoritesProvider } from "./context/FavoritesContext";
 
 function AppContent() {
   const { darkMode } = useContext(ThemeContext);
@@ -32,16 +30,12 @@ function AppContent() {
   );
 }
 
-function App() {
+export default function App() {
   return (
-    <FavoritesProvider>
-      <ThemeProvider>
-        <BrowserRouter>
-          <AppContent />
-        </BrowserRouter>
-      </ThemeProvider>
-    </FavoritesProvider>
+    <ThemeProvider>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
-
-export default App;
