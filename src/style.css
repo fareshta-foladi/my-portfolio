@@ -4,14 +4,138 @@
   box-sizing: border-box;
 }
 
-.light {
-  background-color: white;
-  color: black;
-  padding: 20px;
+body {
+  font-family: Arial, sans-serif;
+  transition: 0.3s ease;
 }
 
+/* LIGHT MODE */
+.light {
+  background-color: #ffffff;
+  color: #111;
+}
+
+/* DARK MODE */
 .dark {
-  background-color: #222;
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  transition: 0.3s;
+}
+
+.navbar.light {
+  background-color: #f0f0f0;
+}
+
+.navbar.dark {
+  background-color: #1e1e1e;
+}
+
+/* LINKS */
+.nav-links {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+/* ACTIVE LINK */
+.nav-links a.active {
+  border-bottom: 2px solid #00bcd4;
+}
+
+/* BUTTON */
+.theme-btn {
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #00bcd4;
   color: white;
-  padding: 20px;
+}
+
+/* CARDS */
+.card {
+  padding: 15px;
+  margin: 10px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.light .card {
+  background-color: #f8f8f8;
+}
+
+.dark .card {
+  background-color: #2a2a2a;
+}
+
+/* TECH BADGE */
+.tech-badge {
+  display: inline-block;
+  margin: 3px;
+  padding: 4px 8px;
+  background-color: #00bcd4;
+  color: white;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* 📱 Mobile */
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* 📟 Tablet */
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #00bcd4;
+  transition: 0.3s ease;
 }

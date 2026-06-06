@@ -1,34 +1,46 @@
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import Profile from "./components/Profile";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Footer from "./components/Footer";
-import ContactForm from "./components/ContactForm";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import "./style.css";
+import Navbar from "./components/Navbar";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
+import ProjectDetails from "./pages/ProjectDetails";
+import NotFound from "./pages/NotFound";
+
+import { ThemeProvider, ThemeContext } from "./context/ThemeContext";
+import { useContext } from "react";
+import { FavoritesProvider } from "./context/FavoritesContext";
+
+function AppContent() {
+  const { darkMode } = useContext(ThemeContext);
+
+  return (
+    <div className={darkMode ? "dark" : "light"}>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:id" element={<ProjectDetails />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div>
-      <Navbar />
-
-      <Header message="Welcome to my personal developer portfolio built with React." />
-
-      <Profile
-        image="https://via.placeholder.com/250"
-        title="Computer Science Student"
-        bio="Passionate about AI, coding, and building innovative solutions."
-      />
-
-      <About />
-
-      <Projects />
-
-      <ContactForm />
-
-      <Footer />
-    </div>
+    <FavoritesProvider>
+      <ThemeProvider>
+        <BrowserRouter>
+          <AppContent />
+        </BrowserRouter>
+      </ThemeProvider>
+    </FavoritesProvider>
   );
 }
 
