@@ -6,6 +6,9 @@ function Header({ message }) {
       <p>{message}</p>
 
       <button className="btn">Explore My Work</button>
+     <button aria-label="Toggle Dark Mode">
+  Dark Mode
+</button>
     </header>
   );
 }

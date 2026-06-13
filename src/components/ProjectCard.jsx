@@ -8,17 +8,16 @@ function ProjectCard({
   image,
   description,
   link,
-  techStack,
+  techStack = [],
   featured,
 }) {
   const { favorites, toggleFavorite } = useContext(FavoritesContext);
 
   const isFav = favorites.some((p) => p.id === id);
-
-  const progress = featured ? 90 : 60; 
+  const progress = featured ? 90 : 60;
 
   return (
-    <div className="card">
+    <article className="card">
       {featured && <span className="badge">⭐ Featured</span>}
 
       <img src={image} alt={name} className="project-img" />
@@ -27,7 +26,7 @@ function ProjectCard({
 
       <p>{description}</p>
 
-      <div>
+      <div className="tech-stack">
         {techStack.map((tech, index) => (
           <span key={index} className="tech-badge">
             {tech}
@@ -37,27 +36,28 @@ function ProjectCard({
 
       <div className="buttons">
         <a href={link} target="_blank" rel="noreferrer">
-          View Code
+          Live Demo
         </a>
 
         <Link to={`/projects/${id}`}>
-          View Project
+          View Details
         </Link>
       </div>
 
-      {/* ⭐ FAVORITE BUTTON */}
-      <button onClick={() => toggleFavorite({ id, name })}>
+      <button
+        onClick={() => toggleFavorite({ id, name })}
+        aria-label="Toggle favorite project"
+      >
         {isFav ? "💔 Remove Favorite" : "⭐ Add Favorite"}
-  </button>
-  
-      <div className="progress-bar">
-  <div
-    className="progress-fill"
-    style={{ width: `${progress}%` }}
-  />
-</div>
+      </button>
 
-    </div>
+      <div className="progress-bar">
+        <div
+          className="progress-fill"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+    </article>
   );
 }
 
